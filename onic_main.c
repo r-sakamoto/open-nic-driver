@@ -210,6 +210,10 @@ static int onic_probe(struct pci_dev *pdev, const struct pci_device_id *ent)
 	spin_lock_init(&priv->tx_lock);
 	spin_lock_init(&priv->rx_lock);
 
+netdev->min_mtu = 68;
+netdev->max_mtu = 9000;
+
+
 	rv = onic_init_capacity(priv);
 	if (rv < 0) {
 		dev_err(&pdev->dev, "onic_init_capacity, err = %d", rv);

@@ -763,6 +763,7 @@ int onic_do_ioctl(struct net_device *dev, struct ifreq *ifr, int cmd)
 
 int onic_change_mtu(struct net_device *dev, int mtu)
 {
+  dev->mtu = mtu;
 	netdev_info(dev, "Requested MTU = %d", mtu);
 	return 0;
 }
